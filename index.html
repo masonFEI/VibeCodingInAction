@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VibeCodingInAction</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="brand-mark">V</span>
+        <div>
+          <strong>VibeCoding</strong>
+          <span>行动台</span>
+        </div>
+      </div>
+      <nav class="nav" aria-label="主导航">
+        <a class="active" href="#">总览</a>
+        <a href="#">任务</a>
+        <a href="#">迭代</a>
+        <a href="#">文档</a>
+        <a href="#">设置</a>
+      </nav>
+    </aside>
+
+    <main class="workspace">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">今日工作区</p>
+          <h1>把想法推进到可交付状态</h1>
+        </div>
+        <button class="primary-button" type="button" id="newTaskButton">新建任务</button>
+      </header>
+
+      <section class="metrics" aria-label="项目指标">
+        <article>
+          <span>进行中</span>
+          <strong>8</strong>
+          <small>较昨日 +2</small>
+        </article>
+        <article>
+          <span>待评审</span>
+          <strong>3</strong>
+          <small>平均等待 1.5 小时</small>
+        </article>
+        <article>
+          <span>已完成</span>
+          <strong>21</strong>
+          <small>本周交付</small>
+        </article>
+      </section>
+
+      <section class="content-grid">
+        <div class="panel">
+          <div class="panel-header">
+            <h2>优先任务</h2>
+            <button class="ghost-button" type="button">筛选</button>
+          </div>
+          <ul class="task-list" id="taskList">
+            <li>
+              <label>
+                <input type="checkbox" />
+                <span>完善中文界面文案和状态提示</span>
+              </label>
+              <strong>高</strong>
+            </li>
+            <li>
+              <label>
+                <input type="checkbox" />
+                <span>补齐项目初始化说明</span>
+              </label>
+              <strong>中</strong>
+            </li>
+            <li>
+              <label>
+                <input type="checkbox" />
+                <span>整理迭代验收清单</span>
+              </label>
+              <strong>中</strong>
+            </li>
+          </ul>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">
+            <h2>迭代状态</h2>
+            <span class="status">第 1 周</span>
+          </div>
+          <div class="progress-block">
+            <div class="progress-label">
+              <span>交付进度</span>
+              <strong>68%</strong>
+            </div>
+            <div class="progress-track">
+              <span style="width: 68%"></span>
+            </div>
+          </div>
+          <div class="timeline">
+            <p><strong>10:30</strong> 确认 UI 语言切换为中文。</p>
+            <p><strong>14:00</strong> 完成任务看板初稿。</p>
+            <p><strong>17:30</strong> 汇总今日待评审内容。</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
