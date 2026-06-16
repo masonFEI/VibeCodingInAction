@@ -41,7 +41,9 @@ Claude Code的工程化能力抽象成7个扩展点：
 
 codex对多模态处理更优秀，能处理文本、代码、图像等多种输入输出形式。
 
-中转站：OpenRouter,CloseAI(跟原厂相比有较高溢价，不推荐)
+## 中转站
+
+OpenRouter,CloseAI  (跟原厂相比有较高溢价，不推荐)
 
 # codex
 
