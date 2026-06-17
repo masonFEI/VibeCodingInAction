@@ -88,6 +88,40 @@ Claude Code 的配置文件位于 `~/.claude/settings.json`（全局）或项目
 "autoCompactThreshold": 80
 }
 
+## CLAUDE.md文件
+
+红线操作：
+以下操作即使在auto-accept模式下也必须先问我：
+
+- 删除文件、目录或git历史
+- 修改.env、密钥、token、证书、CI/CD配置
+- git push, git rebase, git reset --hard、强制推送
+- 公开发布（npm publish、生产部署等）
+
+/init 生成CLAUDE.md文件，包含项目背景、已完成工作、待办事项等信息，帮助Claude更好地理解项目状态和需求。
+
+/memory 编辑全局级：在cc会话里输入/memory 选择“全局CLAUDE.md”,会用默认编辑器打开该文件供你修改。修改全局后需重启CC才生效。
+
+Auto-memory:可以关闭
+
+## 卡帕西的md文档
+
+## 三层记忆
+
+/memory 命令可以看到
+
+第一层记忆：Claude.md（项目上下文文件）
+第二层记忆：Auto Memory（cc 自己的笔记本）
+第三层记忆：自建参考文档（渐进式披露）cc遇到对应任务才读
+例如：
+
+- 修改前端视觉，调颜色->必读`docs/brand-visual.md`
+- 写API、定义返回格式时->必读`docs/api-design.md`
+
+## claudeignore文件
+
+指定Claude Code在执行操作时应忽略的文件或目录，类似于.gitignore。可以用来避免Claude修改不相关或敏感的文件。
+
 # codex
 
 先检查，再说明；确认后，再执行。
