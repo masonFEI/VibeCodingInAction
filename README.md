@@ -65,6 +65,29 @@ OpenRouter,CloseAI  (跟原厂相比有较高溢价，不推荐)
 
 项目/.claude/settings.local.json 配置为当前项目个人私有，不要提交到git仓库
 
+Claude Code 的配置文件位于 `~/.claude/settings.json`（全局）或项目目录下的 `.claude/settings.json`（项目级）。
+
+常用配置项
+{
+// 允许 Claude Code 执行的操作（不再需要每次确认）
+"permissions": {
+"allow": [
+"Read", // 读取文件
+"Write", // 写入文件
+"Bash(npm *)", // 执行 npm 命令
+"Bash(git *)", // 执行 git 命令
+"Bash(node *)"   // 执行 node 命令
+],
+"deny": [
+"Bash(rm -rf *)" // 禁止执行危险的删除命令
+]
+},
+// 默认使用的模型
+"model": "sonnet",
+// 自动紧凑阈值（上下文使用超过此比例时自动压缩）
+"autoCompactThreshold": 80
+}
+
 # codex
 
 先检查，再说明；确认后，再执行。
