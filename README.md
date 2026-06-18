@@ -90,6 +90,8 @@ Claude Code 的配置文件位于 `~/.claude/settings.json`（全局）或项目
 
 ## CLAUDE.md文件
 
+### 文件内容
+
 红线操作：
 以下操作即使在auto-accept模式下也必须先问我：
 
@@ -97,6 +99,8 @@ Claude Code 的配置文件位于 `~/.claude/settings.json`（全局）或项目
 - 修改.env、密钥、token、证书、CI/CD配置
 - git push, git rebase, git reset --hard、强制推送
 - 公开发布（npm publish、生产部署等）
+
+### 相关命令
 
 /init 生成CLAUDE.md文件，包含项目背景、已完成工作、待办事项等信息，帮助Claude更好地理解项目状态和需求。
 
