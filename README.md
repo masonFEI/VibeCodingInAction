@@ -179,6 +179,10 @@ claude -c # =--continue,启动时直接接上次会话
 claude -permission-mode plan # 启动后直接进 Plan Mode
 claude --dangerously-skip-permissions #危险模式：一路路灯不问任何确认
 
+## 官方推荐工作流
+
+explore（探索）->plan（规划,评估边界情况）->implement（实现）->commit（提交）
+
 # codex
 
 先检查，再说明；确认后，再执行。
