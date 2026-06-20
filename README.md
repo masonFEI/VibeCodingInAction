@@ -204,6 +204,28 @@ explore（探索）->plan（规划,评估边界情况）->implement（实现）-
 在项目根目录创建 .claude/commands/目录 文件，然后添加Markdown文件，例如
 .claude/commands/deploy.md，再增加md文档内容
 
+# 第四部分 AI技能系统深度实践
+
+一个完整的Skill是一个目录
+
+- skill-name/
+    - skill.md // 技能说明文档，描述技能的功能、使用方法、输入输出等信息
+    - scripts/ // 存放技能相关的脚本文件，如Python、Shell等
+    - resource/ // 存放技能相关的资源文件，如数据、模型等
+    - reference/ // 存放技能相关的参考文档，如API文档、设计文档等
+    - requirements.txt // 技能依赖的第三方库列表
+
+## skill.md文件
+
+包含两部分：头部的元数据和正文的具体指令
+
+## 官方skill库
+
+github.com/anthropic/skills
+
+安装skills
+npx skills add anthropic/skills/skills@frontend-design -g
+
 # codex
 
 先检查，再说明；确认后，再执行。
