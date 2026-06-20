@@ -226,6 +226,13 @@ github.com/anthropic/skills
 安装skills
 npx skills add anthropic/skills/skills@frontend-design -g
 
+// 创建新的skill
+npx skills add anthropic/skills/skills@skill-creator -g
+
+## Superpowers插件
+
+superpowers是Claude Code生态中的一类社区增强插件/Skills集合。
+
 # codex
 
 先检查，再说明；确认后，再执行。
