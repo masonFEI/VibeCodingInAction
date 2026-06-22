@@ -126,6 +126,115 @@ Auto-memory:可以关闭
 
 指定Claude Code在执行操作时应忽略的文件或目录，类似于.gitignore。可以用来避免Claude修改不相关或敏感的文件。
 
+## 斜杠命令
+
+/add-dir <项目地址>：添加项目目录，claude会分析项目结构和文件内容，构建知识库。
+
+/init 初始化项目的记忆文档，claude会根据项目文件内容生成记忆文档，记录项目的结构、功能、依赖等信息。
+
+/clear 清除项目的记忆文档，重新初始化项目的记忆文档。
+`宁可多/clear几次重新介绍背景，也不要一直聊一直聊。每个/clear都是给AI一次重新聚焦的机会。`
+
+/compact 压缩对话内容，保留重要信息，删除冗余内容，减少对话历史的长度。（解决AI用久了变笨的问题）
+
+/memory 编辑会话记忆文件，claude会根据记忆文件的内容调整对话的上下文和回答的内容。
+
+/status 查看会话状态，包括当前使用的模型、对话历史长度、记忆文档的状态等信息。
+
+/cost 令牌消耗统计，查看当前会话的令牌消耗情况，包括输入令牌、输出令牌、总令牌等信息。
+
+/config 查看并修改配置文件
+
+/model 查看可用模型列表，选择使用的模型。
+
+/context 查看当前上下文窗口的内容，包括对话历史、记忆文等信息。
+
+/review 对当前项目进行代码审查（当前与上次提交的差异代码审查）
+
+/plan 切入Plan Mode(只读规划模式，无法修改代码)，在该模式下可以让Claude专注于规划和设计，而不涉及具体的代码修改。
+
+/rewind 回滚cc之前的修改（后悔药）
+
+/resume 选择历史会话恢复（上次话题还没聊完）
+
+/btw 主任务进行中想问个无关问题（顺便问一句）
+
+扩展管理命令
+
+/skill <名称> 直接调用某个skill
+/agent 创建，查看，调用子代理（SubAgent）
+/plugin 管理插件（安装、卸载、查看已安装插件等）
+/simplify 派3个子Agent从代码质量、性能、复用性三个角度优化
+/login 使用Claude官方订阅会员登录
+
+! 进入Bash模式，直接执行命令行指令
+@文件/目录，给cc精准上下文
+
+反直觉小冗识：你给cc的指令越短，它反而可能花更多的token--因为它需要更多费力探索项目才能猜到你想要什么。
+
+## 三种启动参数
+
+claude #默认启动
+claude -c # =--continue,启动时直接接上次会话
+claude -permission-mode plan # 启动后直接进 Plan Mode
+claude --dangerously-skip-permissions #危险模式：一路路灯不问任何确认
+
+## 官方推荐工作流
+
+explore（探索）->plan（规划,评估边界情况）->implement（实现）->commit（提交）
+
+## 大型代码库最佳实践
+
+1. 用/init 自动生成CLAUDE.md(项目初始化)
+2. 任务粒度要小且聚焦（避免万能prompt）
+3. 频繁重置上下文（/clear 是好朋友）
+4. 复杂任务从Plan Mode起手（权限控制）
+5. 用Skills与Subagents卸载长任务
+   例如将高频调研流程封装成Skill,每次一键触发
+6. 接入MCP/LSP(给AI装上团队协作工作)
+
+## 三个容易被忽视的官方进阶建议
+
+1. 在子目录初始化Claude,别从仓库根目录开始；
+2. 配置要定期审查（每3-6个月）
+3. 团队内应该有个“人”负责Claude Code(DRI/Agent Manager)
+
+## 自定义斜杠命令
+
+在项目根目录创建 .claude/commands/目录 文件，然后添加Markdown文件，例如
+.claude/commands/deploy.md，再增加md文档内容
+
+# 第四部分 AI技能系统深度实践
+
+一个完整的Skill是一个目录
+
+- skill-name/
+    - skill.md // 技能说明文档，描述技能的功能、使用方法、输入输出等信息
+    - scripts/ // 存放技能相关的脚本文件，如Python、Shell等
+    - resource/ // 存放技能相关的资源文件，如数据、模型等
+    - reference/ // 存放技能相关的参考文档，如API文档、设计文档等
+    - requirements.txt // 技能依赖的第三方库列表
+
+## skill.md文件
+
+包含两部分：头部的元数据和正文的具体指令
+
+## 官方skill库
+
+github.com/anthropic/skills
+
+安装skills
+npx skills add anthropic/skills/skills@frontend-design -g
+
+// 创建新的skill
+npx skills add anthropic/skills/skills@skill-creator -g
+
+## Superpowers插件
+
+superpowers是Claude Code生态中的一类社区增强插件/Skills集合。
+
+# 第五部分 完整项目案例实操
+
 # codex
 
 先检查，再说明；确认后，再执行。
